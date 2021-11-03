@@ -26,8 +26,8 @@ public class ServicioCategoria {
         if (categoria.getId() == null) {
             return metodosCrud.save(categoria);
         } else {
-            Optional<Categoria> e = metodosCrud.getCategoria(categoria.getId());
-            if (e.isEmpty()) {
+            Optional<Categoria> evt = metodosCrud.getCategoria(categoria.getId());
+            if (evt.isEmpty()) {
                 return metodosCrud.save(categoria);
             } else {
                 return categoria;
@@ -45,8 +45,8 @@ public class ServicioCategoria {
                 if (categoria.getDescription() != null) {
                     e.get().setDescription(categoria.getDescription());
                 }
-                metodosCrud.save(e.get());
-                return e.get();
+                
+                return metodosCrud.save(e.get());
             } else {
                 return categoria;
             }
